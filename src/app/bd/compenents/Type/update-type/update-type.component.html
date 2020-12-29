@@ -1,0 +1,51 @@
+<div class="card">
+
+  <div class="card-header">
+
+    <div class="card my-5">
+      <div class="card-body">
+        <h3 style="text-align:center ; color: darkgray">Modifier et enregistrer type</h3>
+        <br>
+        <br>
+        <form (ngSubmit)="onSubmitUpdateType()">
+          <div class="row mb-3">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="ligne">Ligne : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <div class="col-sm-10">
+              <input type="text" [(ngModel)]="type.ligne"
+                     class="form-control"
+                     id="ligne"
+                     name="ligne"
+                     placeholder="ligne">
+            </div>
+          </div>
+          <div class="row mb-3">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="article">Article :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <div class="col-sm-10">
+              <input type="textarea " [(ngModel)]="type.article"
+                     class="form-control"
+                     id="article"
+                     name="article"
+                     placeholder="article">
+            </div>
+          </div>
+          <div class="row mb-3">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="chapitre">Chapitre :&nbsp;&nbsp;</label>
+            <div class="col-sm-10">
+              <input type="text" [(ngModel)]="type.chapitre"
+                     class="form-control"
+                     id="chapitre"
+                     name="chapitre"
+                     placeholder="chapitre">
+            </div>
+          </div>
+          <div class="col-12" style="text-align: center">
+            <button id="btn"  class="col-12" type="submit" class="btn btn-primary " >Enregistrer</button></div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

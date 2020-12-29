@@ -1,0 +1,71 @@
+<!--<app-header-content [title]="'Formulaire'"></app-header-content>-->
+<!--<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+
+                        <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                &lt;!&ndash; /.card &ndash;&gt;
+            </div>
+        </div>
+    </div>
+</section>-->
+
+<div class="card my-5">
+    <div class="card-body">
+      <h3 style="text-align:center"><strong>liste des compagnes</strong></h3>
+       <br>
+      <a href="manageCompagne">
+        <button  id="btn" type="button"  class="btn-info btn-lg">ajouter </button>
+      </a>
+      <br>
+      <br>
+
+        <table class="table table-dark table-hover table-striped">
+            <thead class="thead-dark">
+            <tr>
+
+                <th scope="col">Annee</th>
+                <th scope="col">Date début  </th>
+                <th scope="col">Date fin  </th>
+                <th scope="col">Statut</th>
+                <th scope="col">Remarque</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let compagne of compagnes">
+
+                <td>{{compagne.annee}}</td>
+                <td>{{compagne.debutComp}}</td>
+                <td>{{compagne.finComp}}</td>
+                <td>{{compagne.statut }}</td>
+                <td>{{compagne.remarque}}</td>
+                <td><li class="list-inline-item">
+                    <button class="btn-danger" (click)="deleteCompagne(compagne)"> <i class="far fa-trash-alt"></i></button>
+                  &nbsp;
+                 <!-- <a href="updateCompagne/{{compagne.idCompagne}}" class="btn-outline-warning">Modifier</a>-->
+                  <a href="updateCompagne/{{compagne.idCompagne}}">
+                    <button type="button"  class="btn-primary">  <i class="far fa-edit"></i></button>
+                  </a>
+                </li></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

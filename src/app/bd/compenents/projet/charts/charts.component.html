@@ -1,0 +1,14 @@
+<a href="listProjet">
+  <button type="button" class="btn btn-primary"><i class="fas fa-arrow-left">Retour</i>  </button>
+</a>
+<div>
+  <div style="display: block">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+    </canvas>
+  </div>
+</div>

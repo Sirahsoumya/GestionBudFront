@@ -1,0 +1,123 @@
+<!--
+<app-header-content [title]="'Formulaire'"></app-header-content>
+<section class="content">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+
+            <div class="card-tools">
+              <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        &lt;!&ndash; /.card &ndash;&gt;
+      </div>
+    </div>
+  </div>
+</section>
+-->
+<div class="card">
+
+  <div class="card-header">
+
+    <div class="card my-5">
+      <div class="card-body">
+        <h3 style="text-align:center ; color: darkgray"><strong>Modifier et enregistrer demande transfert</strong></h3>
+        <form (ngSubmit)="onSubmitUpdateDemandeTransfert()">
+          <div class="row mb-3">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="dateDemande">Date Demande :</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="col-sm-6">
+              <input type="Date" [(ngModel)]="demandeTransfert.dateDemande"
+                     class="form-control"
+                     id="dateDemande"
+                     name="dateDemande"
+                     placeholder="date Demande">
+            </div>
+          </div>
+          <div class="row mb-3">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="ligneBudgetaire">Ligne Budgetaire :</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="col-sm-6">
+              <input type="text" [(ngModel)]="demandeTransfert.ligneBudgetaire"
+                     class="form-control"
+                     id="ligneBudgetaire"
+                     name="ligneBudgetaire"
+                     placeholder="ligne Budgetaire">
+              <!--<textarea  [(ngModel)]="orientation.description"
+                id="description" name="description"
+                        rows="5" cols="33">
+              </textarea>-->
+            </div>
+          </div>
+          <div class="row mb-3">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="montantTransfert">Montant Transfert :</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="col-sm-6">
+              <input type="text" [(ngModel)]="demandeTransfert.montantTransfert"
+                     class="form-control"
+                     id="montantTransfert"
+                     name="montantTransfert"
+                     placeholder="montant Transfert">
+            </div>
+          </div>
+          <div class="row mb-3">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="typeDemande">Type Demande :</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="col-sm-6">
+              <input type="text" [(ngModel)]="demandeTransfert.typeDemande"
+                     class="form-control"
+                     id="typeDemande"
+                     name="typeDemande"
+                     placeholder="type demande">
+            </div>
+          </div>
+          <div class="row mb-3">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label>Statut Demande  :</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="col-sm-6">
+              &nbsp; &nbsp;&nbsp; &nbsp;
+
+              <select type="number" name="libelle" [(ngModel)]="demandeTransfert.statutDemande.idStatut">
+                <option [ngValue]="undefined" hidden>Selectionner...&nbsp; &nbsp; &nbsp; &nbsp; </option>
+                <option *ngFor="let statutDemande of statutDemandes "
+                        [ngValue]="statutDemande.idStatut">{{statutDemande.libelle}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label>Division  :</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp; &nbsp;
+
+            <select type="number" name="libelle" [(ngModel)]="demandeTransfert.division.idDevision">
+              <option [ngValue]="undefined" hidden>Selectionner...&nbsp; &nbsp; &nbsp; &nbsp; </option>
+              <option *ngFor="let divs of divisions "
+                      [ngValue]="divs.idDevision">{{divs.libelle}}</option>
+            </select>
+          </div>
+          <div class="col-12" style="text-align: center">
+            <button id="btn"  class="col-12" type="submit" class="btn btn-primary " >Enregistrer</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

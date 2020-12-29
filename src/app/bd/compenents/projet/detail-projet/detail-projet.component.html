@@ -1,0 +1,121 @@
+<div class="container" id="content" #content>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card" >
+
+            <div class="card-body">
+                <h5 class="card-title">Information générale du projet N°: {{ projet.idProjet}}</h5>
+                <br/>
+                <div class="card-text">
+                    <ul>
+                        <li><span class="titre" >Libellé :</span>{{ projet.libelle}}</li>
+                        <li><span class="titre" >Déscription :</span>{{ projet.description}}</li>
+                        <li><span class="titre" >Finalité :</span>{{ projet.finalite}}</li>
+                        <!--<li><span class="titre" >Marché :</span>{{projet.marche?.nomMarche}}</li>
+                        <li><span class="titre" >Division :</span> {{projet.devision?.libelle}}</li>-->
+                        <li><span class="titre" >Statut :</span> <span class="badge badge-danger"> <td>{{projet.statutProjet?.libelle}}</td></span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card" >
+            <div class="card-body">
+                <h5 class="card-title">Programme N° : {{ projet.programme.numProgramme}}</h5>
+                <br>
+                <div class="card-text">
+                    <ul>
+                        <li><span class="titre" >Libellé :</span>{{ projet.programme.libelle}}</li>
+                        <li><span class="titre" >Déscription :</span>{{ projet.programme.description}}</li>
+                        <li><span class="titre" >Résultat :</span>{{ projet.programme.result}}</li>
+                        <li><span class="titre" >durée :</span>{{ projet.programme.dureeRealisation}}</li>
+                        <li><span class="titre" >budget :</span>{{ projet.programme.budget}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card" >
+            <div class="card-body">
+                <h5 class="card-title">Etat d'avancement : </h5>
+                <br/>
+                <br>
+                <div class="card-text">
+                    <ul>
+                        <li><span class="titre" >Etat d'avancement théorique : </span>{{ projet.etatAvancementTheorique}}%</li>
+                        <li><span class="titre" >Etat d'avancement réel : </span>{{ projet.etatAvancementReelle}}%</li>
+
+                    </ul>
+                    <br/>
+                    <br/>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card" >
+
+            <div class="card-body">
+                <h5 class="card-title">Dates</h5>
+                <br>
+                <div class="card-text">
+                    <ul>
+                        <li><span class="titre" >Date démarrage prévue:</span>{{ projet.demaragePrevue}}</li>
+
+                        <li><span class="titre" >Date démarrage réel :</span>{{ projet.demarageReelle}}</li>
+                        <li><span class="titre" >Date réalisation prevue :</span>{{ projet.realisationPrevue}}</li>
+                        <li><span class="titre" >Date réalisation réel :</span>{{ projet.realisationReelle}}</li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card" >
+
+            <div class="card-body">
+                <h5 class="card-title">Perimetre de projet : </h5>
+                <br>
+                <div class="card-text">
+                    <ul>
+                        <li><span class="titre" >Quartier :</span>{{ projet.perimetre.quartier}}</li>
+                        <li><span class="titre" >Adresse : </span>{{ projet.perimetre.adresse}}</li>
+                        <li><span class="titre" >Localisation : </span> {{ projet.perimetre.localisation}}</li>
+
+
+                    </ul>
+                    <br/>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br>
+</div>
+<div class="row bg-white p-3">
+    <div class="col-md-5"></div>
+    <div class="col-md-7">
+        <a href="listProjet" class="btn btn-info"><i class="fas fa-arrow-left"></i> Retour </a>
+
+      <input type="button" value="Télecharger PDF" class="btn btn-danger" (click)="ExportPDF()">
+    </div>
+
+
+</div>
+

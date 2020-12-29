@@ -1,0 +1,96 @@
+<!--<app-header-content [title]="'Formulaire'"></app-header-content>
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+
+                        <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.card
+            </div>
+        </div>
+    </div>
+</section>-->
+<div class="card my-5">
+    <div class="card-body">
+      <h3 style="text-align:center"><strong>Liste depenses</strong></h3>
+
+      <br>
+      <div style="text-align:center">
+        <a href="manageDepense">
+          <button id="btn" type="button"  class="btn-success btn-lg">ajouter </button>
+        </a>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <!--<a href="http://localhost:8081/recettes/fichierExcelRectte">Convertir en excel</a>-->
+        <a href="http://localhost:8081/depenses/fichierExcelDepense">
+          <button  id="btn" type="button"  class="btn-success btn-lg">Convertir en excel</button>
+        </a>
+      </div>
+      <br><br>
+      <table class="table table-bordered table-striped table-responsive table-dark table-hover">
+        <thead class="thead-dark">
+            <tr>
+
+                <th scope="col">Objet</th>
+                <th scope="col">Observation</th>
+                <th scope="col">imputation budgetaires</th>
+                <th scope="col">Nom Parties Prenantes</th>
+                <th scope="col">Mantant d'engagement</th>
+                <th scope="col">Montant credit</th>
+                <th scope="col">Credit Disponible</th>
+                <th scope="col"> Total article</th>
+                <th scope="col">Date d'engagement</th>
+                <th scope="col">date visa</th>
+                <th scope="col">Division</th>
+
+                <th scope="col" style="width: 10%;" >Action</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let depense of  depenses">
+
+                <td>{{ depense.objet}}</td>
+                <td>{{depense.observation}}</td>
+                <td>{{depense.imputationBudgetaires}}</td>
+                <td>{{ depense.nomPartiesPrenantes}}</td>
+                <td>{{depense.mantantDengagement}}</td>
+                <td>{{depense.montantCredit}}</td>
+                <td>{{ depense.creditDispo}}</td>
+                <td>{{depense.totalArticle}}</td>
+                <td>{{depense.dateDengagement}}</td>
+                <td>{{depense.dateVisa}}</td>
+                <td>{{depense.devision.libelle}}</td>
+
+
+                <td>
+                    <li class="list-inline-item">
+                        <button class="btn-danger" (click)="deleteDepense(depense)"><i class="far fa-trash-alt"></i>
+                        </button>
+                      &nbsp;
+
+
+                      <a href="updateDepense/{{depense.idDepense}}">
+                        <button type="button"  class="btn-primary"><i class="far fa-edit"></i></button>
+                      </a>
+                    </li>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

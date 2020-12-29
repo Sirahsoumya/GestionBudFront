@@ -1,0 +1,140 @@
+<!--<app-header-content [title]="'Formulaire'"></app-header-content>
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+
+                        <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.card
+            </div>
+        </div>
+    </div>
+</section>-->
+<div class="card">
+
+  <div class="card-header">
+
+    <div class="card my-5">
+      <div class="card-body">
+        <h1 style="text-align:center ; color: darkgray"><strong> Budget</strong></h1>
+        <br>
+        <br>
+        <form  (ngSubmit)="onSubmitDemandeBudget()">
+          <div class="row mb-3">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="montantDemande">Montant demande :</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="col-sm-6">
+            <input type="text" [(ngModel)]="demandeBudget.montantDemande"
+                   class="form-control"
+                   id="montantDemande"
+                   name="montantDemande"
+                   placeholder="montant demande">
+          </div>
+          </div>
+          <div class="row mb-3">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="montantProposeBureau">Montant propose par bureau : &nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <div class="col-sm-6">
+            <input type="textarea " [(ngModel)]="demandeBudget.montantProposeBureau"
+                   class="form-control"
+                   id="montantProposeBureau"
+                   name="montantProposeBureau"
+                   placeholder="montant propose par bureau">
+            <!--<textarea  [(ngModel)]="orientation.description"
+              id="description" name="description"
+                      rows="5" cols="33">
+            </textarea>-->
+          </div>
+          </div>
+
+          <div class="row mb-3">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="montantAlloue">Montant alloue :</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="col-sm-6">
+            <input type="text" [(ngModel)]="demandeBudget.montantAlloue"
+                   class="form-control"
+                   id="montantAlloue"
+                   name="montantAlloue"
+                   placeholder="montant alloue">
+          </div>
+          </div>
+          <div class="row mb-3">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="montantValideConseil">Montant valide par Conseil :</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;
+            <div class="col-sm-6">
+            <input type="text" [(ngModel)]="demandeBudget.montantValideConseil"
+                   class="form-control"
+                   id="montantValideConseil"
+                   name="montantValideConseil"
+                   placeholder="montant valide par Conseil">
+          </div>
+          </div>
+
+<br>
+          <div class="col-md-6">
+            <label>Imputation  :</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+            <select type="number" name="idType" [(ngModel)]="demandeBudget.type.idType">
+              <option [ngValue]="undefined" hidden>Selectionner...&nbsp; &nbsp; &nbsp; &nbsp; </option>
+              <option *ngFor="let type of types "
+                      [ngValue]="type.idType">{{type.idType}}</option>
+            </select>
+          </div>
+          <br>
+          <div class="col-md-6">
+            <label>Compagne  :</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+            <select type="text" name="idCompagne" [(ngModel)]="demandeBudget.compagne.idCompagne">
+              <option [ngValue]="undefined" hidden>Selectionner...&nbsp; &nbsp; &nbsp; &nbsp; </option>
+              <option *ngFor="let compagne of compagnes "
+                      [ngValue]="compagne.idCompagne">{{compagne.idCompagne}}</option>
+            </select>
+          </div>
+          <br>
+          <div class="col-md-6">
+            <label>Statut demande  :</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp; &nbsp;&nbsp;
+            <select type="text" name="libelle" [(ngModel)]="demandeBudget.statutDemande.libelle">
+              <option [ngValue]="undefined" hidden>Selectionner...&nbsp; &nbsp; &nbsp; &nbsp; </option>
+              <option *ngFor="let statutDemande of statutDemandes "
+                      [ngValue]="statutDemande.idStatut">{{statutDemande.libelle}}</option>
+            </select>
+          </div>
+        <!--  <div class="col-md-6">
+            <label>Projet  :</label>
+            &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <select type="number" name="projet" [(ngModel)]="demandeBudget.projetd.idProjet">
+              <option *ngFor="let projet of projets "
+                      [ngValue]="projet.idProjet">{{projet.libelle}}</option>
+            </select>
+          </div>-->
+
+          <div class="col-12" style="text-align: right">
+            <button id="btn"  class="col-12" type="submit" class="btn btn-primary " >Ajouter</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

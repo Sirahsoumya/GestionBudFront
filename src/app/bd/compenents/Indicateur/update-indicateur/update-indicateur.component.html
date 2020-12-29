@@ -1,0 +1,114 @@
+<!--<app-header-content [title]="'Formulaire'"></app-header-content>
+<section class="content">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+
+            <div class="card-tools">
+              <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.card
+      </div>
+    </div>
+  </div>
+</section>-->
+<div class="card">
+
+  <div class="card-header">
+
+    <div class="card my-5">
+      <div class="card-body">
+        <h3 style="text-align:center ; color: darkgray"><strong>Modifier et enregistrer indicateur</strong></h3>
+        <br>
+        <br>
+        <form  (ngSubmit)="onSubmitIndicateur()">
+          <div class="row">
+            <div class="col">
+              <label for="libelle">Libelle </label>
+              <input type="text" [(ngModel)]="indicateur.libelle"
+                     class="form-control"
+                     id="libelle"
+                     name="libelle"
+                     placeholder="libelle">
+            </div>
+            <div class="col">
+              <label for="actuell">Actuel</label>
+              <input type="text" [(ngModel)]="indicateur.actuel"
+                     class="form-control"
+                     id="actuell"
+                     name="actuell"
+                     placeholder="Actuell">
+            </div>
+          </div>
+          <br>
+          <div class="mb-3">
+            <label for="description">Description</label>
+            <textarea type="text " [(ngModel)]="indicateur.description"
+                      class="form-control"
+                      id="description"
+                      name="description"
+                      placeholder="description"></textarea>
+
+          </div>
+          <div class="mb-3">
+            <label for="objectif">Objectif</label>
+            <textarea type="text" [(ngModel)]="indicateur.objectif"
+                      class="form-control"
+                      id="objectif"
+                      name="objectif"
+                      placeholder="objectif"></textarea>
+          </div>
+
+          <div class="mb-3">
+
+            <label for="cible">Cible</label>
+            <input type="text" [(ngModel)]="indicateur.cible"
+                   class="form-control"
+                   id="cible"
+                   name="cible"
+                   placeholder="Cible">
+          </div>
+          <br>
+
+          <div class="mb-3">
+            <label>Projet  :</label>
+            &nbsp;&nbsp;
+            <select type="number" name="projet" [(ngModel)]="indicateur.projet.idProjet">
+              <option [ngValue]="undefined" hidden>Selectionner...&nbsp; &nbsp; &nbsp; &nbsp; </option>
+              <option *ngFor="let projet of projets  "
+                      [ngValue]="projet.idProjet">{{projet.libelle}}</option>
+            </select>
+          </div>
+
+
+
+          <!-- <div class="form-group">
+             <label>Projet  :</label>
+
+             <select type="number" name="projet" [(ngModel)]="indicateur.projet.idProjet">
+               <option [ngValue]="undefined" hidden>Choisir...&nbsp; &nbsp; &nbsp; &nbsp; </option>
+               <option *ngFor="let projet of projets  "
+                       [ngValue]="projet.idProjet">{{projet.libelle}}</option>
+             </select>
+           </div>-->
+
+
+          <div class="col-12" style="text-align: right">
+            <button id="btn"  class="col-12" type="submit" class="btn btn-primary " >Enregistrer</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

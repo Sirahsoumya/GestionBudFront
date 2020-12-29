@@ -1,0 +1,125 @@
+<!--<app-header-content [title]="'Formulaire'"></app-header-content>
+<section class="content">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+
+            <div class="card-tools">
+              <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.card
+      </div>
+    </div>
+  </div>
+</section>-->
+<div class="card my-5">
+  <div class="card-body">
+    <h3 style="text-align:center"><strong>Liste des projets</strong></h3>
+    <br>
+    <div id="outer">
+      <div class="inner">
+        <a href="manageProjet">
+          <button  id="btn" type="button"  class="btn-success ">Ajouter </button>
+        </a>
+      </div>
+      <!----- lister les projet en retard ----->
+      <div class="inner">
+        <form (ngSubmit)="listeRetaretedProject()">
+          &nbsp;&nbsp;
+          <button id="btn" type="submit"
+                  class="btn-success " ><!--<i class="fas fa-filter"></i>-->Projets en retard
+          </button>
+        </form>
+      </div>
+      &nbsp;
+      <div class="inner">
+        <a href="projetCharts">
+          <button  id="btn" type="button" class="btn-success ">Diagramme d'etat d'anvancement</button>
+        </a>
+      </div>
+    </div>
+    <br>
+    <div>
+
+      <label style="color: #4da6ff; font-family:'Courier New';font-size:20px"> Recherche multicritére :</label>
+      &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+      <input type="text" id="myInput" (keyup)="myFunction()" placeholder="Chercher" ><button type="submit" class="btn-info"><i class="fa fa-search"></i></button>
+    </div>
+    <br/>
+
+    <table class="table table-bordered table-striped  table-responsive table-dark table-hover">
+      <thead class="thead-dark">
+      <tr>
+
+        <th scope="col">libelle</th>
+        <th scope="col">description</th>
+        <th scope="col">finalité</th>
+        <th scope="col">Démarage prévue</th>
+        <th scope="col">Démarage réelle</th>
+        <th scope="col">Réalisation prévue</th>
+        <th scope="col">Réalisation réelle</th>
+        <th scope="col">Budget de la réalisation</th>
+        <th scope="col">Contribution du budget financiére</th>
+        <th scope="col">Budget consommé</th>
+        <th scope="col">Etat d'avancement théorique</th>
+        <th scope="col">Etat d'avancement réelle</th>
+        <th scope="col">Statut</th>
+        <th scope="col">Source</th>
+        <th scope="col">Detail</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let projet of projets">
+        <td>{{ projet.libelle}}</td>
+        <td>{{ projet.description}}</td>
+        <td>{{ projet.finalite}}</td>
+        <td>{{projet.demaragePrevue }}</td>
+        <td>{{projet.demarageReelle}}</td>
+        <td>{{projet.realisationPrevue}}</td>
+        <td>{{projet.realisationReelle}}</td>
+        <td>{{ projet.budgetRealisation}}</td>
+        <td>{{ projet.contributionBudgetFinanc}}</td>
+        <td>{{projet.budgetConsomme}}</td>
+        <td>{{projet.etatAvancementTheorique}}</td>
+        <td>{{projet.etatAvancementReelle}}</td>
+        <td>{{projet.statutProjet?.libelle}}</td>
+        <td>{{projet.source}}</td>
+
+        <td>
+          <li class="list-inline-item">
+            <!--<a href="detailProjet/{{projet.idProjet}}" class="btn-outline-danger">detail</a>-->
+            <a href="detailProjet/{{projet.idProjet}}">
+              <button title="detail" type="button"  class="btn btn-warning"><i class="far fa-plus-square"></i></button>
+            </a>
+          </li>
+        </td>
+        <td>
+          <li class="list-inline-item">
+            <button class="btn-danger" (click)="deleteProjet(projet)"><i class="far fa-trash-alt"></i></button>
+            &nbsp;
+            <br>
+            <!--<a href="updateProjet/{{projet.idProjet}}" class="btn-outline-warning">Modifier</a>-->
+            <a href="updateProjet/{{projet.idProjet}}">
+              <button type="button"  class="btn-primary"><i class="far fa-edit"></i></button>
+            </a>
+          </li>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

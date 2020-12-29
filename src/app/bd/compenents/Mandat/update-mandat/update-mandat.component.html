@@ -1,0 +1,67 @@
+<!--<app-header-content [title]="'Formulaire'"></app-header-content>
+<section class="content">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+
+            <div class="card-tools">
+              <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.card
+      </div>
+    </div>
+  </div>
+</section>-->
+<div class="card">
+
+  <div class="card-header">
+
+    <div class="card my-5">
+      <div class="card-body">
+        <h3 style="text-align:center ; color: darkgray"><strong>Modifier et enregistrer mandat</strong></h3>
+        <br>
+        <br>
+        <form (ngSubmit)="onSubmitUpdateMandat()">
+          <div class="row mb-3">
+            &nbsp;&nbsp;&nbsp;
+            <label for="montantMandat">Montant : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</label>
+            <div class="col-sm-10">
+              <input type="text" [(ngModel)]="mandat.montantMandat"
+                     class="form-control"
+                     id="montantMandat"
+                     name="montantMandat"
+                     placeholder="montant Mandat">
+            </div>
+          </div>
+          <div class="row mb-3">
+            &nbsp;&nbsp;&nbsp;
+            <label for="objectif">Objectif :&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</label>
+            <div class="col-sm-10">
+                        <textarea type="text" [(ngModel)]="mandat.objectif"
+                                  class="form-control"
+                                  id="objectif"
+                                  name="objectif"
+                                  placeholder="objectif"></textarea>
+            </div>
+          </div>
+          <div class="col-12" style="text-align: right">
+            <button id="btn"  class="col-12" type="submit" class="btn btn-primary " >Enregistrer</button></div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

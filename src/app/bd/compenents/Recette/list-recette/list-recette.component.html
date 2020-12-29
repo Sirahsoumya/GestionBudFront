@@ -1,0 +1,85 @@
+<!--<app-header-content [title]="'Formulaire'"></app-header-content>
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+
+                        <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.card
+            </div>
+        </div>
+    </div>
+</section>-->
+<div class="card my-5">
+  <div class="card-body">
+<div class="container">
+  <h3 style="text-align:center"><strong>Liste des recette</strong></h3>
+       <!-- <a href="manageRecette" class="nav-link">
+            <p style="text-align:center">ajouter une recette</p>
+        </a>-->
+  <br>
+  <div style="text-align:center">
+  <a href="manageRecette">
+    <button id="btn" type="button"  class="btn-success btn-lg">ajouter </button>
+  </a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+      <!--<a href="http://localhost:8081/recettes/fichierExcelRectte">Convertir en excel</a>-->
+  <a href="http://localhost:8081/recettes/fichierExcelRectte">
+    <button id="btn" type="button"  class="btn-success btn-lg">Convertir en excel</button>
+  </a>
+  </div>
+      <!--<input type="button" value="Download PDF" class="btn btn-success" (click)="SavePDF()">-->
+  <br/><br/>
+  <div class="container" id="content" #content>
+    <table class="table table-dark table-hover table-striped">
+      <thead class="thead-dark">
+            <tr>
+
+                <th scope="col">Type</th>
+                <th scope="col">Code Economique</th>
+                <th scope="col">Montant</th>
+                <th scope="col">Date</th>
+                <th scope="col">Type</th>
+                <th scope="col">Division</th>
+                <th scope="col" style="width: 14%;">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let recette of recettes">
+
+                <td>{{ recette.type.idType}}</td>
+                <td>{{ recette.codeEconomique}}</td>
+                <td>{{recette.montant}}</td>
+                <td>{{recette.date}}</td>
+                <td>{{recette.type.idType}}</td>
+                <td>{{recette.division.idDevision}}</td>
+                <td><li class="list-inline-item">
+                    <button class="btn-danger" (click)="deleteRecette(recette)"><i class="far fa-trash-alt"></i></button>
+                  &nbsp;
+                 <!-- <a href="updateRecette/{{recette.idRecette}}" class="btn-outline-warning">Modifier</a>-->
+                  <a href="updateRecette/{{recette.idRecette}}">
+                    <button type="button"  class="btn-primary"><i class="far fa-edit"></i></button>
+                  </a>
+                </li></td>
+            </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>

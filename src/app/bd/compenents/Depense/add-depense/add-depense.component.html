@@ -1,0 +1,172 @@
+<!--<app-header-content [title]="'Formulaire'"></app-header-content>
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+
+                        <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                &lt;!&ndash; /.card &ndash;&gt;
+            </div>
+        </div>
+    </div>
+</section>-->
+<div class="card">
+
+    <div class="card-header">
+
+        <div class="card my-5">
+            <div class="card-body">
+              <h3 style="text-align:center ; color: darkgray"><strong>Depense</strong></h3>
+              <br>
+              <br>
+                <form   (ngSubmit)="onSubmitDepense()">
+                  <div class="row">
+                  <div class="col">
+                    <label for="objet">Objet :</label>
+                        <input type="text" [(ngModel)]="depense.objet"
+                               class="form-control"
+                               id="objet"
+                               name="objet"
+                               placeholder="objet">
+
+                    </div>
+
+                  <div class="col">
+                        <label for="observation">Observation :</label>
+                        <input type="text" [(ngModel)]="depense.observation"
+                               class="form-control"
+                               id="observation"
+                               name="observation"
+                               placeholder="observation">
+                    </div>
+                    </div>
+                  <br>
+                  <div class="row">
+                  <div class="col">
+                        <label for="imputationBudgetaires">Imputation Budgetaires :</label>
+                        <input type="text" [(ngModel)]="depense.imputationBudgetaires"
+                               class="form-control"
+                               id="imputationBudgetaires"
+                               name="imputationBudgetaires"
+                               placeholder="imputation Budgetaires">
+                    </div>
+                  <br>
+                  <div class="col">
+                        <label for="nomPartiesPrenantes">Nom Parties Prenantes :</label>
+                        <input type="text" [(ngModel)]="depense.nomPartiesPrenantes"
+                               class="form-control"
+                               id="nomPartiesPrenantes"
+                               name="nomPartiesPrenantes"
+                               placeholder="Nom Parties Prenantes">
+                    </div>
+                    </div>
+                  <br>
+                  <div class="row">
+                  <div class="col">
+                        <label for="mantantDengagement">Montant Dengagement :</label>
+                        <input type="text" [(ngModel)]="depense.mantantDengagement"
+                               class="form-control"
+                               id="mantantDengagement"
+                               name="montantDengagement"
+                               placeholder="montant Dengagement">
+                    </div>
+
+                  <div class="col">
+                        <label for="montantCredit">Montant Credit :</label>
+                        <input type="text" [(ngModel)]="depense.montantCredit"
+                               class="form-control"
+                               id="montantCredit"
+                               name="montantCredit"
+                               placeholder="montant Credit">
+                    </div>
+                    </div>
+                  <br>
+                  <div class="row">
+                  <div class="col">
+                        <label for="creditDispo">Credit Disponible :</label>
+                        <input type="text" [(ngModel)]="depense.creditDispo"
+                               class="form-control"
+                               id="creditDispo"
+                               name="creditDispo"
+                               placeholder="credit Disponible">
+                    </div>
+
+
+                  <div class="col">
+                        <label for="totalArticle">Total Article :</label>
+                        <input type="text" [(ngModel)]="depense.totalArticle"
+                               class="form-control"
+                               id="totalArticle"
+                               name="totalArticle"
+                               placeholder="total Article">
+                    </div>
+                    </div>
+                  <br>
+                  <div class="row">
+                  <div class="col">
+                        <label for="dateDengagement">Date d'engagement :</label>
+                        <input type="Date" [(ngModel)]="depense.dateDengagement"
+                               class="form-control"
+                               id="dateDengagement"
+                               name="dateDengagement"
+                               placeholder="date Dengagement">
+                  </div>
+
+                    <div class="col">
+                      <label for="dateVisa">Date Visa :</label>
+                      <input type="Date" [(ngModel)]="depense.dateVisa"
+                             class="form-control"
+                             id="dateVisa"
+                             name="dateVisa"
+                             placeholder="date Visa">
+                    </div>
+                    </div>
+                  <br>
+                  <div class="row">
+                    <div class="col">
+                      <label>Mandat&nbsp;&nbsp;:</label>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <select type="number" name="libele" [(ngModel)]="depense.mandat.numMandat">
+                        <option [ngValue]="undefined" hidden>Selectionner...&nbsp; &nbsp; &nbsp; &nbsp; </option>
+                        <option *ngFor="let mand of mandats "
+                                [ngValue]=" mand.numMandat">{{mand.numMandat}}</option>
+                      </select>
+                    </div>
+
+
+                    <div class="col">
+                      <label>Division&nbsp;&nbsp;:</label>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                      <select type="number" name="libele" [(ngModel)]="depense.devision.idDevision">
+                        <option [ngValue]="undefined" hidden>Selectionner...&nbsp; &nbsp; &nbsp; &nbsp; </option>
+                        <option *ngFor="let devision of devisions "
+                                [ngValue]=" devision.idDevision">{{devision.libelle}}</option>
+                      </select>
+                    </div>
+                    </div>
+
+
+
+
+                  <div class="col-12" style="text-align: right">
+                    <button id="btn"  class="col-12" type="submit" class="btn btn-primary " >Ajouter</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

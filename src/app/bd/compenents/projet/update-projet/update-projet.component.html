@@ -1,0 +1,271 @@
+<!--<app-header-content [title]="'Formulaire'"></app-header-content>
+<section class="content">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+
+            <div class="card-tools">
+              <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.card
+      </div>
+    </div>
+  </div>
+</section>-->
+<div class="card-header">
+
+  <div class="card my-5">
+
+    <div class="card-body">
+      <h3 style="text-align:center ; color: darkgray">Modifier et enregistrer projet</h3>
+      <br>
+      <br>
+      <form (ngSubmit)="OnSubmitUpdateProjet()">
+        <div class="row ">
+          <div class="col">
+            <label for="libelle">Libelle </label>
+
+            <input type="text" [(ngModel)]="projet.libelle"
+                   class="form-control"
+                   id="libelle"
+                   name="libelle"
+                   placeholder="libelle">
+
+          </div>
+          <div class="col">
+            <label for="source">Source </label>
+
+            <input type="text" [(ngModel)]="projet.source"
+                   class="form-control"
+                   id="source"
+                   name="source"
+                   placeholder="source">
+          </div>
+        </div>
+        <br>
+        <div class="mb-3">
+          <label for="description">Description </label>
+
+          <textarea type="text" [(ngModel)]="projet.description"
+                    class="form-control"
+                    id="description"
+                    name="description"
+                    placeholder="description"
+                    rows="2" cols="50"></textarea>
+
+        </div>
+        <div class="row ">
+          <div class="col">
+            <label for="demaragePrevue">Démarage Prevue </label>
+
+            <input type="date" [(ngModel)]="projet.demaragePrevue"
+                   class="form-control"
+                   id="demaragePrevue"
+                   name="demaragePrevue"
+                   placeholder="demarage Prévue">
+
+          </div>
+          <div class="col">
+            <label for="demarageReelle">Démarage Réelle </label>
+
+            <input type="date" [(ngModel)]="projet.demarageReelle"
+                   class="form-control"
+                   id="demarageReelle"
+                   name="demarageReelle"
+                   placeholder="demarage réelle">
+          </div>
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="col">
+            <label for="realisationPrevue">Réalisation Prévue </label>
+
+            <input type="date" [(ngModel)]="projet.realisationPrevue"
+                   class="form-control"
+                   id="realisationPrevue"
+                   name="RealisationPrevue"
+                   placeholder="Réalisation prévue">
+
+          </div>
+          <div class="col">
+            <label for="realisationReelle">Réalisation Réelle </label>
+
+            <input type="date" [(ngModel)]="projet.realisationReelle"
+                   class="form-control"
+                   id="realisationReelle"
+                   name="RealisationReelle"
+                   placeholder="Réalisation réelle">
+          </div>
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="col">
+            <label for="budgetRealisation">Budget de la Réalisation </label>
+
+            <input type="text" [(ngModel)]="projet.budgetRealisation"
+                   class="form-control"
+                   id="budgetRealisation"
+                   name="budgetRealisation"
+                   placeholder="budget de la réalisation">
+
+          </div>
+          <div class="col">
+
+            <label for="budgetConsomme">Budget Consommé </label>
+
+            <input type="text" [(ngModel)]="projet.budgetConsomme"
+                   class="form-control"
+                   id="budgetConsomme"
+                   name="budgetConsomme"
+                   placeholder="budget consommé">
+          </div>
+        </div>
+        <br>
+        <div class="mb-3">
+          <label for="contributionBudgetFinanc">Contribution du budget financiére </label>
+
+          <input type="text" [(ngModel)]="projet.contributionBudgetFinanc"
+                 class="form-control"
+                 id="contributionBudgetFinanc"
+                 name="contributionBudgetFinanc"
+                 placeholder="contribution budget finance">
+        </div>
+
+        <div class="row ">
+          <div class="col">
+            <label for="etatAvancementTheorique">Etat d'avancement théorique</label>
+
+            <input type="text" [(ngModel)]="projet.etatAvancementTheorique"
+                   class="form-control"
+                   id="etatAvancementTheorique"
+                   name="etatAvancementTheorique"
+                   placeholder="etat d'avancement théorique (%) ">
+
+          </div>
+          <div class="col">
+            <label for="etatAvancementReelle">Etat d'avancement réelle </label>
+
+            <input type="text" [(ngModel)]="projet.etatAvancementReelle"
+                   class="form-control"
+                   id="etatAvancementReelle"
+                   name="etatAvancementReelle"
+                   placeholder="etat d'avancement réelle (%)">
+          </div>
+        </div>
+        <br>
+
+        <div class="mb-3">
+
+          <label for="finalite">Finalité </label>
+
+          <input type="text" [(ngModel)]="projet.finalite"
+                 class="form-control"
+                 id="finalite"
+                 name="finalite"
+                 placeholder="finalite">
+
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label>Source budget  :</label>
+            &nbsp; &nbsp;&nbsp; &nbsp;
+            &nbsp; &nbsp;&nbsp; &nbsp;
+
+            <select type="number" name="sourceBudget" [(ngModel)]="projet.sourceBudget.libelle">
+              <option [ngValue]="undefined" hidden>Selectionner...&nbsp; &nbsp; &nbsp; &nbsp; </option>
+              <option *ngFor="let sourceBudget of sourceBudgets "
+                      [ngValue]="sourceBudget.idSourceBudget">{{sourceBudget.libelle}}</option>
+            </select>
+          </div>
+          <!--<div class="form-group">
+            <label>Demande budget</label>
+
+            <select type="number" name="demandeBudget" [(ngModel)]="projet.demandeBudget.idDemande">
+              <option *ngFor="let demandeBudget of demandesBudgets "
+                      [ngValue]="demandesBudget.idDemande">{{demandesBudget.idDemande}}</option>
+            </select>
+          </div>-->
+          <div class="col">
+            <label>Programme  :</label>
+            &nbsp; &nbsp;&nbsp; &nbsp;
+            <select type="number" name="programme" [(ngModel)]="projet.programme.numProgramme">
+              <option [ngValue]="undefined" hidden>Selectionner...&nbsp; &nbsp; &nbsp; &nbsp; </option>
+              <option *ngFor="let programme of programmes "
+                      [ngValue]="programme.numProgramme">{{programme.libelle}}</option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label>Marche  :</label>
+            &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+            <select type="number" name="marche" [(ngModel)]="projet.marche.idMarche">
+              <option [ngValue]="undefined" hidden>Selectionner...&nbsp; &nbsp; &nbsp; &nbsp; </option>
+              <option *ngFor="let marche of marches "
+                      [ngValue]="marche.idMarche">{{marche.idMarche}}</option>
+            </select>
+          </div>
+          <!--  <div class="form-group">
+              <label>Source du budget</label>
+              <select type="number" name="sourceBudget" [(ngModel)]="projet.sourceBudgetaire.idSourceBudget">
+                <option *ngFor="let sourceBudgetaire of sourceBudgetaires "
+                        [ngValue]="sourceBudgetaire.idSourceBudget">{{sourceBudgetaire.idSourceBudget}}</option>
+              </select>
+            </div>-->
+          <!-------->
+          <div class="col">
+            <label>Division  :</label>
+            &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+
+            <select type="number" name="devision" [(ngModel)]="projet.devision.idDevision">
+              <option [ngValue]="undefined" hidden>Selectionner...&nbsp; &nbsp; &nbsp; &nbsp; </option>
+              <option *ngFor="let devision of divisions "
+                      [ngValue]="devision.idDevision">{{devision.libelle}}</option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label>Perimétre projet  :</label>
+            &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+            <select type="number" name="perimetre" [(ngModel)]="projet.perimetre.idPerimetre">
+              <option [ngValue]="undefined" hidden>Selectionner...&nbsp; &nbsp; &nbsp; &nbsp; </option>            <option *ngFor="let perimetre of perimetres "
+                                                                                                                           [ngValue]="perimetre.idPerimetre">{{perimetre.adresse}}</option>
+            </select>
+          </div>
+
+          <div class="col">
+            <label>Statut projet  :</label>
+            &nbsp; &nbsp;&nbsp; &nbsp;
+            <select type="number" name="statutProjet" [(ngModel)]="projet.statutProjet.idStatut">
+              <option [ngValue]="undefined" hidden>Selectionner...&nbsp; &nbsp; &nbsp; &nbsp; </option>
+              <option *ngFor="let statutProjet of statutProjets "
+                      [ngValue]="statutProjet.idStatut">{{statutProjet.libelle}}</option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <div class="col-12" style="text-align: right">
+          <button id="btn"  class="col-12" type="submit" class="btn btn-primary " >Enregistrer</button></div>
+
+      </form>
+    </div>
+  </div>
+</div>
